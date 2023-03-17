@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\View\View;
 use Livewire\Component;
 
 class HelloWorld extends Component
@@ -19,8 +20,10 @@ class HelloWorld extends Component
         $this->count--;
     }
 
-    public function render()
+    public function render(): View
     {
-        return view('livewire.hello-world');
+        return view('livewire.hello-world')
+            ->extends('layouts.app')
+            ->section('content');
     }
 }
